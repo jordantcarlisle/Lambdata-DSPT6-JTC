@@ -1,7 +1,9 @@
-##Overall Score: 2
+Overall Score: 2
 
 -Code layout easy to follow.
+
 -Clear and concise
+
 -Can be used and/or extended (with the completion of to_dataframe_column() function)
 
 
