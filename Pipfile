@@ -3,13 +3,13 @@ name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
-[dev-packages]
+[dev - packages]
 twine = "*"
 autopep8 = "*"
 
 [packages]
 pandas = "*"
-scikit-learn = "*"
+scikit - learn = "*"
 
 [requires]
 python_version = "3.7"

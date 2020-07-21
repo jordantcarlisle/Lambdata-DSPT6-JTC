@@ -2,9 +2,10 @@ from pdb import set_trace as breakpoint
 
 
 class Dog():
-    def __init__(self, name, age, housebroke):
+    def __init__(self, name, age, housebroke, breed):
         self.name = name
         self.age = age
+        self.breed = breed
         self.housebroke = housebroke
 
     def is_housebroke(self):
