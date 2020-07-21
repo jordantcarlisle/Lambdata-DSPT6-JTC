@@ -2,7 +2,6 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.datasets import load_wine
 from pdb import set_trace as breakpoint
-from IPython.display import display
 
 
 def enlarge(n):
@@ -12,20 +11,20 @@ def enlarge(n):
     return n * 1000
 
 
-
 def download(url):
     filename = url.split('/')[-1]
-    #print(f'Downloading {url}')
+    print(f'Downloading {url}')
     r = requests.get(url)
     with open(filename, 'wb') as f:
         f.write(r.content)
-    #print(f'Downloaded {filename}')
+    print(f'Downloaded {filename}')
 
 
 def to_dataframe_column(list):
     x = pd.series(list)
     df = DataFrame(x)
     print(df)
+
 
 class My_Data_Splitter():
     '''
@@ -61,7 +60,8 @@ class My_Data_Splitter():
             self.X, self.y, test_size=test_size, random_state=random_state, shuffle=shuffle)
 
         X_train, X_val, y_train, y_val = train_test_split(
-            X_train_val, y_train_val, test_size=val_size / (train_size + val_size),
+            X_train_val, y_train_val, test_size=val_size /
+            (train_size + val_size),
             random_state=random_state, shuffle=shuffle)
 
         return X_train, X_val, X_test, y_train, y_val, y_test
@@ -96,6 +96,8 @@ if __name__ == '__main__':
     df['target'] = raw_data['target']
 
     # Test the My_Data_Splitter Class
-    splitter = My_Data_Splitter(df=df, features=['ash', 'hue'], target='target')
+    splitter = My_Data_Splitter(
+        df=df, features=[
+            'ash', 'hue'], target='target')
     X_train, X_val, X_test, y_train, y_val, y_test = splitter.train_validation_test_split()
     splitter.print_split_summary(X_train, X_val, X_test)
